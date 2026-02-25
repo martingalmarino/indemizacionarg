@@ -1,7 +1,7 @@
-# robots.txt para Calculadora de Indemnización Argentina
+# robots.txt para Calculadora Laboral Argentina
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://calculadora-indemnizacion.com/sitemap.xml
+Sitemap: https://calculadoralaboral.com.ar/sitemap.xml

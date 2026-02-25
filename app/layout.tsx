@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://calculadora-indemnizacion-argentina.com'),
+  metadataBase: new URL('https://calculadoralaboral.com.ar'),
   title: {
     default: 'Calculadora de Indemnización Laboral Argentina 2026 | Cálculo Exacto',
     template: '%s | Calculadora Indemnización Argentina',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://calculadora-indemnizacion-argentina.com',
+    url: 'https://calculadoralaboral.com.ar',
     title: 'Calculadora de Indemnización Laboral Argentina 2026',
     description:
       'Calculá tu indemnización por despido en Argentina. Incluye Reforma 2026, preaviso, vacaciones y más.',
