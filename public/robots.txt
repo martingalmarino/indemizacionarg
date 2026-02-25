@@ -1,0 +1,7 @@
+# robots.txt para Calculadora de Indemnización Argentina
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://calculadora-indemnizacion.com/sitemap.xml
