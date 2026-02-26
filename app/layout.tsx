@@ -85,7 +85,7 @@ export default function RootLayout({
 
           {/* ── HEADER ── */}
           <header className="bg-white border-b border-ink-100 sticky top-0 z-50">
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
               {/* Logo */}
               <a href="/" className="flex items-center gap-3 flex-shrink-0 group">
                 <div className="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center shadow-sm group-hover:bg-brand-600 transition-colors">
@@ -102,12 +102,12 @@ export default function RootLayout({
                 </div>
               </a>
 
-              {/* Nav */}
-              <div className="flex items-center gap-1">
+              {/* Nav desktop */}
+              <div className="hidden md:flex items-center gap-1">
                 <a href="/calculadora-indemnizacion" className="text-sm text-ink-600 hover:text-ink-900 font-semibold px-3 py-2 rounded-md hover:bg-ink-50 transition-all">
                   Calculadora
                 </a>
-                <a href="/guias/indemnizacion-despido" className="text-sm text-ink-600 hover:text-ink-900 font-semibold px-3 py-2 rounded-md hover:bg-ink-50 transition-all hidden sm:block">
+                <a href="/guias/indemnizacion-despido" className="text-sm text-ink-600 hover:text-ink-900 font-semibold px-3 py-2 rounded-md hover:bg-ink-50 transition-all">
                   Guías
                 </a>
                 <a href="/faq" className="text-sm text-ink-600 hover:text-ink-900 font-semibold px-3 py-2 rounded-md hover:bg-ink-50 transition-all">
@@ -115,12 +115,50 @@ export default function RootLayout({
                 </a>
                 <a
                   href="/calculadora-indemnizacion"
-                  className="ml-3 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-5 py-2.5 rounded-btn transition-colors shadow-btn hidden sm:block"
+                  className="ml-3 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-5 py-2.5 rounded-btn transition-colors shadow-btn"
                 >
                   Calcular gratis
                 </a>
               </div>
+
+              {/* Mobile: CTA + hamburger */}
+              <div className="flex md:hidden items-center gap-2">
+                <a href="/calculadora-indemnizacion" className="bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold px-4 py-2 rounded-btn transition-colors">
+                  Calcular
+                </a>
+                <label htmlFor="mobile-menu-toggle" className="cursor-pointer p-1.5 rounded-md hover:bg-ink-50 transition-colors" aria-label="Abrir menú">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" className="text-ink-700">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                  </svg>
+                </label>
+              </div>
             </nav>
+
+            {/* Mobile dropdown menu */}
+            <input type="checkbox" id="mobile-menu-toggle" className="hidden peer/menu" />
+            <div className="hidden peer-checked/menu:block md:hidden bg-white border-t border-ink-100 px-4 py-3 space-y-1 shadow-lg">
+              <a href="/calculadora-indemnizacion" className="flex items-center gap-3 text-sm font-semibold text-ink-700 hover:text-brand-500 px-3 py-3 rounded-md hover:bg-sand-50 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+                Calculadora
+              </a>
+              <a href="/guias/indemnizacion-despido" className="flex items-center gap-3 text-sm font-semibold text-ink-700 hover:text-brand-500 px-3 py-3 rounded-md hover:bg-sand-50 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Guía de indemnización
+              </a>
+              <a href="/guias/reforma-laboral-2026" className="flex items-center gap-3 text-sm font-semibold text-ink-700 hover:text-brand-500 px-3 py-3 rounded-md hover:bg-sand-50 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Reforma Laboral 2026
+              </a>
+              <a href="/faq" className="flex items-center gap-3 text-sm font-semibold text-ink-700 hover:text-brand-500 px-3 py-3 rounded-md hover:bg-sand-50 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Preguntas Frecuentes
+              </a>
+              <div className="pt-2 pb-1 border-t border-ink-100 mt-2">
+                <a href="/calculadora-indemnizacion" className="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm px-5 py-3 rounded-btn transition-colors">
+                  Calcular mi indemnización →
+                </a>
+              </div>
+            </div>
           </header>
 
           <main className="flex-1">{children}</main>
@@ -128,8 +166,8 @@ export default function RootLayout({
           {/* ── FOOTER ── */}
           <footer className="bg-ink-900 text-ink-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-10 border-b border-white/10">
-                <div className="md:col-span-2">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-white/10">
+                <div className="col-span-2 sm:col-span-2 lg:col-span-2">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center shadow-sm">
                       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -184,7 +222,7 @@ export default function RootLayout({
                   </ul>
                 </div>
               </div>
-              <div className="pt-7 flex flex-col sm:flex-row justify-between items-center gap-2">
+              <div className="pt-7 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
                 <p className="text-xs text-ink-600">© 2026 Calculadora Indemnización Argentina. Todos los derechos reservados.</p>
                 <p className="text-xs text-ink-500">Desarrollado por <a href="mailto:m.galmarino@gmail.com" className="hover:text-brand-400 transition-colors">Martín Galmarino</a> 🤖</p>
                 <p className="text-xs text-ink-600">Actualizado: Febrero 2026</p>

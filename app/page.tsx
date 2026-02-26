@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px] items-stretch">
 
             {/* Columna izquierda — texto */}
-            <div className="py-16 lg:py-24 pr-0 lg:pr-16 flex flex-col justify-center">
+            <div className="py-12 sm:py-16 lg:py-24 pr-0 lg:pr-16 flex flex-col justify-center">
               <span className="inline-block bg-brand-50 text-brand-600 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-pill mb-6 w-fit">
                 Actualizado · Reforma Laboral 2026
               </span>
@@ -137,7 +137,7 @@ export default function HomePage() {
                 Rápido, preciso y <strong className="text-ink-800 font-semibold">100% gratuito</strong>.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col xs:flex-row sm:flex-row gap-3">
                 <Link
                   href="/calculadora-indemnizacion"
                   className="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-7 py-3.5 rounded-btn text-base transition-colors shadow-btn"
@@ -154,14 +154,14 @@ export default function HomePage() {
               </div>
 
               {/* Stats */}
-              <div className="flex items-center gap-8 mt-10 pt-10 border-t border-ink-100">
+              <div className="flex items-center gap-6 sm:gap-8 mt-10 pt-8 sm:pt-10 border-t border-ink-100">
                 {[
                   { value: '100%', label: 'Gratuito' },
                   { value: '<2 min', label: 'Resultado' },
                   { value: '6+', label: 'Conceptos' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-black text-ink-900">{s.value}</p>
+                    <p className="text-xl sm:text-2xl font-black text-ink-900">{s.value}</p>
                     <p className="text-xs text-ink-400 font-medium mt-0.5">{s.label}</p>
                   </div>
                 ))}
@@ -352,17 +352,17 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { icon: <IconZap />,        label: 'Resultado inmediato', sub: 'Menos de 2 minutos' },
                 { icon: <IconShield />,     label: 'Sin registro', sub: 'No pedimos datos personales' },
                 { icon: <IconScale />,      label: 'Legalmente actualizado', sub: 'Reforma Laboral 2026' },
                 { icon: <IconSmartphone />, label: 'En tu celular', sub: 'Funciona en todos los dispositivos' },
               ].map((f) => (
-                <div key={f.label} className="bg-white/15 rounded-card border border-white/25 p-5">
+                <div key={f.label} className="bg-white/15 rounded-card border border-white/25 p-4 sm:p-5">
                   <div className="text-white mb-2">{f.icon}</div>
                   <p className="font-bold text-white text-sm leading-tight mb-0.5">{f.label}</p>
-                  <p className="text-xs text-brand-100">{f.sub}</p>
+                  <p className="text-xs text-brand-100 hidden sm:block">{f.sub}</p>
                 </div>
               ))}
             </div>

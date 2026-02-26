@@ -151,38 +151,41 @@ export default function CalculatorPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-black text-ink-900 mb-4 tracking-tight">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl font-black text-ink-900 mb-3 tracking-tight">
           Calculadora de Indemnización
         </h1>
-        <p className="text-lg text-ink-500">
+        <p className="text-base sm:text-lg text-ink-500">
           Completá los datos para calcular tu indemnización por despido
         </p>
       </div>
 
       {/* Progress Indicator */}
       <div className="flex justify-center mb-8">
-        <div className="flex items-center space-x-4">
-          {[1, 2, 3].map((s) => (
-            <div key={s} className="flex items-center">
-              <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-colors ${
-                  s === step
-                    ? 'bg-brand-500 text-white'
-                    : s < step
-                    ? 'bg-brand-100 text-brand-700'
-                    : 'bg-ink-100 text-ink-400'
-                }`}
-              >
-                {s}
-              </div>
-              {s < 3 && (
+        <div className="flex items-center gap-2 sm:gap-4">
+          {[
+            { n: 1, label: 'Datos' },
+            { n: 2, label: 'Opciones' },
+            { n: 3, label: 'Resultado' },
+          ].map((s, idx) => (
+            <div key={s.n} className="flex items-center">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <div
-                  className={`w-16 h-0.5 transition-colors ${
-                    s < step ? 'bg-brand-500' : 'bg-ink-200'
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm transition-colors ${
+                    s.n === step
+                      ? 'bg-brand-500 text-white'
+                      : s.n < step
+                      ? 'bg-brand-100 text-brand-700'
+                      : 'bg-ink-100 text-ink-400'
                   }`}
-                />
+                >
+                  {s.n}
+                </div>
+                <span className={`hidden sm:block text-xs font-semibold ${s.n === step ? 'text-ink-900' : 'text-ink-400'}`}>{s.label}</span>
+              </div>
+              {idx < 2 && (
+                <div className={`w-8 sm:w-16 h-0.5 mx-1 sm:mx-2 transition-colors ${s.n < step ? 'bg-brand-500' : 'bg-ink-200'}`} />
               )}
             </div>
           ))}
@@ -317,19 +320,19 @@ export default function CalculatorPage() {
             </div>
             <div className="divide-y divide-ink-100">
               {result.breakdown.map((item, index) => (
-                <div key={index} className="flex items-center justify-between gap-4 px-6 py-4">
+                <div key={index} className="flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 py-4">
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-ink-900 text-sm leading-snug">{item.concept}</p>
                     <p className="text-xs text-ink-400 mt-0.5 leading-snug">{item.description}</p>
                   </div>
-                  <p className="font-black text-ink-900 text-base flex-shrink-0">
+                  <p className="font-black text-ink-900 text-sm sm:text-base flex-shrink-0">
                     {formatCurrency(item.amount)}
                   </p>
                 </div>
               ))}
             </div>
             {/* Total row */}
-            <div className="flex items-center justify-between gap-4 px-6 py-4 bg-brand-50 border-t-2 border-brand-200">
+            <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-4 bg-brand-50 border-t-2 border-brand-200">
               <p className="font-black text-ink-900">Total</p>
               <p className="font-black text-brand-600 text-xl">{formatCurrency(result.total)}</p>
             </div>
@@ -350,8 +353,8 @@ export default function CalculatorPage() {
               <div className="px-6 py-4 border-b border-ink-100">
                 <h3 className="font-black text-ink-900 text-lg tracking-tight">Comparación: Tradicional vs Reforma 2026</h3>
               </div>
-              <div className="p-6">
-                <div className="grid grid-cols-2 gap-4 mb-5">
+              <div className="p-4 sm:p-6">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
                   <div className="text-center p-5 bg-sand-100 rounded-card border border-ink-100">
                     <p className="text-xs font-bold text-ink-400 uppercase tracking-widest mb-2">Régimen Tradicional</p>
                     <p className="text-2xl font-black text-ink-900">
@@ -378,16 +381,16 @@ export default function CalculatorPage() {
           )}
 
           {/* ── Acciones ── */}
-          <div className="flex flex-wrap gap-3">
-            <Button onClick={handleShare} variant="outline">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <Button onClick={handleShare} variant="outline" className="w-full sm:w-auto justify-center">
               <Share2 className="inline-block mr-2" size={15} />
               Compartir
             </Button>
-            <Button onClick={handleDownloadPDF} variant="outline">
+            <Button onClick={handleDownloadPDF} variant="outline" className="w-full sm:w-auto justify-center">
               <FileText className="inline-block mr-2" size={15} />
               Exportar PDF
             </Button>
-            <Button onClick={resetCalculator} variant="ghost">
+            <Button onClick={resetCalculator} variant="ghost" className="w-full sm:w-auto justify-center">
               <RefreshCw className="inline-block mr-2" size={15} />
               Nuevo Cálculo
             </Button>
