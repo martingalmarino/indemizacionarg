@@ -87,19 +87,19 @@ export default function RootLayout({
           <header className="bg-white border-b border-ink-100 sticky top-0 z-50">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
               {/* Logo */}
-              <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
-                <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <a href="/" className="flex items-center gap-3 flex-shrink-0 group">
+                <div className="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center shadow-sm group-hover:bg-brand-600 transition-colors">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="4" y="2" width="16" height="20" rx="2"/>
                     <line x1="8" y1="7" x2="16" y2="7"/>
                     <line x1="8" y1="11" x2="16" y2="11"/>
                     <line x1="8" y1="15" x2="12" y2="15"/>
                   </svg>
                 </div>
-                <span className="font-black text-ink-900 text-base tracking-tight leading-none">
-                  Calculadora<br/>
-                  <span className="text-brand-500 font-bold text-xs">Indemnización</span>
-                </span>
+                <div className="flex flex-col leading-none">
+                  <span className="font-black text-ink-900 text-[15px] tracking-tight">Calculadora</span>
+                  <span className="font-bold text-brand-500 text-[12px] tracking-wide uppercase mt-0.5">Indemnización</span>
+                </div>
               </a>
 
               {/* Nav */}
@@ -130,16 +130,19 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
               <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-10 border-b border-white/10">
                 <div className="md:col-span-2">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="4" y="2" width="16" height="20" rx="2"/>
                         <line x1="8" y1="7" x2="16" y2="7"/>
                         <line x1="8" y1="11" x2="16" y2="11"/>
                         <line x1="8" y1="15" x2="12" y2="15"/>
                       </svg>
                     </div>
-                    <span className="font-black text-white text-base">Calculadora Indemnización</span>
+                    <div className="flex flex-col leading-none">
+                      <span className="font-black text-white text-[15px] tracking-tight">Calculadora</span>
+                      <span className="font-bold text-brand-400 text-[12px] tracking-wide uppercase mt-0.5">Indemnización</span>
+                    </div>
                   </div>
                   <p className="text-sm text-ink-400 leading-relaxed max-w-xs">
                     Herramienta gratuita para calcular tu indemnización laboral en Argentina. Actualizado con la Reforma Laboral 2026.
